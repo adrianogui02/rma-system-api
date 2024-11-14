@@ -3,7 +3,7 @@ from passlib.context import CryptContext
 from datetime import datetime, timedelta
 from jose import JWTError, jwt
 from .models import Usuario
-from .schema import UsuarioCreate, Token
+from .schema import UserCreate, Token
 from typing import Optional
 from src.config.config import SECRET_KEY, ALGORITHM
 
@@ -39,7 +39,7 @@ def autenticar_usuario(db: Session, email: str, senha: str):
 
 
 # Função para criar novo usuário
-def criar_usuario(db: Session, usuario: UsuarioCreate):
+def criar_usuario(db: Session, usuario: UserCreate):
     db_usuario = Usuario(
         nome=usuario.nome, 
         email=usuario.email, 

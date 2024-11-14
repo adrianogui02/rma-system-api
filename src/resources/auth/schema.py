@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional
 
-class UsuarioBase(BaseModel):
+class UserBase(BaseModel):
     nome: str
     email: str
     role: Optional[str] = "user" 
@@ -10,10 +10,10 @@ class LoginRequest(BaseModel):
     email: str
     senha: str 
 
-class UsuarioCreate(UsuarioBase):
+class UserCreate(UserBase):
     senha: str
 
-class Usuario(UsuarioBase):
+class User(UserBase):
     id: int
 
     class Config:

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from jose import JWTError
-from .schema import UsuarioCreate, Token, LoginRequest, LoginResponse
+from .schema import UserCreate, Token, LoginRequest, LoginResponse
 from .services import criar_usuario, autenticar_usuario, create_access_token
 from src.database.database import SessionLocal
 from datetime import timedelta
@@ -16,7 +16,7 @@ def get_db():
         db.close()
 
 @router.post("/register", response_model=Token)
-def register(usuario: UsuarioCreate, db: Session = Depends(get_db)):
+def register(usuario: UserCreate, db: Session = Depends(get_db)):
     db_usuario = criar_usuario(db, usuario)
     access_token = create_access_token(data={"sub": db_usuario.email})
     return {"access_token": access_token, "token_type": "bearer"}
