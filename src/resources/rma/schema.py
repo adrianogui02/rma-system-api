@@ -4,11 +4,11 @@ from typing import Optional
 from datetime import datetime
 
 class RMABase(BaseModel):
-    produto_id: int
+    produto_id: str
     motivo: str
     status: Optional[str] = "pendente" 
 class RMA(RMABase):
-    id: int
+    id: str
     data_solicitacao: datetime
 
     class Config:

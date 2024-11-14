@@ -5,14 +5,10 @@ from jose import JWTError, jwt
 from .models import Usuario
 from .schema import UsuarioCreate, Token
 from typing import Optional
+from src.config.config import SECRET_KEY, ALGORITHM
 
 # Configuração para criptografar senhas
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
-# Chave secreta para assinatura de JWT (defina uma chave forte no seu código real)
-SECRET_KEY = "2e62f7d87d89aabb5a78b88f2548481be6e6fd9cc5c01bc22d9de6b489bfeb98"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 # Função para criptografar a senha
 def hash_password(password: str) -> str:
@@ -48,7 +44,7 @@ def criar_usuario(db: Session, usuario: UsuarioCreate):
         nome=usuario.nome, 
         email=usuario.email, 
         senha_hash=hash_password(usuario.senha),
-        role=usuario.role  # Definindo o papel do usuário
+        role=usuario.role 
     )
     db.add(db_usuario)
     db.commit()
