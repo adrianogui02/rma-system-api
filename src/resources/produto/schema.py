@@ -12,7 +12,8 @@ class ProdutoUpdate(ProdutoBase):
     pass
 
 class Produto(ProdutoBase):
-    id: str  
+    id: str
+    usuario_id: str  
 
     class Config:
         from_attributes = True

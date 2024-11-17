@@ -24,3 +24,7 @@ def atualizar_rma_status(db: Session, rma_id: int, status: str) -> RMA:
 # Função para obter todos os RMAs de um usuário
 def obter_rmas_usuario(db: Session, usuario_id: int):
     return db.query(RMA).filter(RMA.usuario_id == usuario_id).all()
+
+# Função para obter todos os RMAs
+def get_rmas(db: Session):
+    return db.query(RMA).all()

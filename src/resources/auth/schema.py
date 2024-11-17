@@ -14,7 +14,7 @@ class UsuarioCreate(UsuarioBase):
     senha: str
 
 class Usuario(UsuarioBase):
-    id: int
+    id: str
 
     class Config:
         from_attributes = True
@@ -24,12 +24,12 @@ class Token(BaseModel):
     token_type: str
 
 class TokenData(BaseModel):
-    id: int
+    id: str
     email: str
     role: str  
 
 class UserResponse(BaseModel):
-    id: int
+    id: str
     nome: str
     email: str
     role: str
