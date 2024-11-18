@@ -1,6 +1,6 @@
 # RMA System API
 
-Bem-vindo à **RMA System API**. Este projeto é uma API desenvolvida para gerenciar informações de estudantes. Ela oferece endpoints para CRUD (Criar, Ler, Atualizar e Deletar) operações sobre estudantes e autenticação de usuários. A API está configurada para rodar em um ambiente Dockerizado.
+Bem-vindo à **RMA System API**. Este projeto é uma API desenvolvida para um sistema de RMA.
 
 ## Stack utilizada
 
