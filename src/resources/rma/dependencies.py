@@ -8,11 +8,9 @@ security = HTTPBearer()
 
 # Função para obter o ID do usuário a partir do token
 def get_user_id(credentials: HTTPAuthorizationCredentials = Depends(security)):
-    print(f"Credenciais recebidas: {credentials}")
     try:
         payload = jwt.decode(credentials.credentials, SECRET_KEY, algorithms=[ALGORITHM])
         user_id: str = payload.get("sub")
-        print(f"Payload decodificado: {payload}")
         if user_id is None:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
